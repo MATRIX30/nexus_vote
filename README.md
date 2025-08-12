@@ -61,7 +61,7 @@ The backend is built with Python, so you need to install Python3 to proceed. Fol
 After installing Python, you can proceed with next step.
 
 
-### Install Python Libraries
+### 2) Install Python Libraries
 To install the required Python libraries for the backend, follow these steps:
 
 1. Open your terminal or command prompt.
