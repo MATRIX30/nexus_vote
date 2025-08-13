@@ -4,10 +4,57 @@
 # Table of Contents
 
 # Description
+Nexus vote is a decentralized secure and transparent platform that enables users to rapidly create dynamic and transparent polls to get the democratic pulse of their Electorates on an opinion. This application uses a MFA mechanism to authenticate its users and a transparent dashboard to view in real time the computation of the results of a Poll. It also provides a custom authentication algorithm to prevent fraud in voting such as double voting the system uses unique generated Keys for each voter which once used can’t be used again, vote tempering the integrity of polls is guaranteed by hashing and signature to capture snapshots of states of a poll and preserve its integrity. 
 
 # Features
+1. Poll Management
+•	APIs to create polls with multiple options.
+•	Include metadata such as creation date and expiry.
+2. Voting System
+•	APIs for users to cast votes.
+•	Implement validations to prevent duplicate voting.
+3. Result Computation
+•	Real-time calculation of vote counts for each option.
+•	Efficient query design for scalability.
+4. API Documentation
+•	Use Swagger to document all endpoints.
+•	Host documentation at /api/docs for easy access.
+##	Nexus_vote Actors and Use cases
+The platform has two (2) principal actors with the following use cases
+
+#### - Nexus_Vote Client:
+---
+This is a normal user who can perform the following functionalities.
+- Signup into the platform
+- Login into the platform
+- Create a poll
+- Register for a poll
+- Vote for a poll they are registerdd in
+- View polls they are registered for.
+- Search ongoing polls
+
+
+#### - Nexus_Vote Admin:
+---
+- Signup into the platform
+- Login and logout of platform
+- Manage all Polls
+- Manage all clients
+
+## Nexus Vote Data Model
+![Nexus Vote Data Model](./imgs/Nexus_vote%20DataModel.png)
 
 # System Architecture
+
+# DevOps Workflow
+## 1) CI/CD Pipleline
+
+#### - Continuous Monitory with Prometheus and Grafana
+
+
+## 2) Orchestration with Kubernetes
+
+
 
 # Data model
 
@@ -27,7 +74,7 @@ To get started, you need to clone the DineHub repository. Follow these steps:
 
 Once the repository is cloned, you can proceed with the installation and setup of both the front-end and back-end components.
 
-### install python3 on your system
+## Install python3 on your system
 ---
 
 The backend is build with python. so you need to install python3 to do that:
