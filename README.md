@@ -41,8 +41,6 @@ This is a normal user who can perform the following functionalities.
 - Manage all Polls
 - Manage all clients
 
-## Nexus Vote Data Model
-![Nexus Vote Data Model](./imgs/Nexus_vote%20DataModel.png)
 
 # System Architecture
 
@@ -56,7 +54,9 @@ This is a normal user who can perform the following functionalities.
 
 
 
-# Data model
+## Nexus Vote Data Model
+
+![Nexus Vote Data Model](./imgs/Nexus_vote%20DataModel.png)
 
 # Installation and Setup
 steps:
