@@ -8,17 +8,17 @@ Nexus vote is a decentralized secure and transparent platform that enables users
 
 # Features
 1. Poll Management
-•	APIs to create polls with multiple options.
-•	Include metadata such as creation date and expiry.
+    - APIs to create polls with multiple options.
+	- Include metadata such as creation date and expiry.
 2. Voting System
-•	APIs for users to cast votes.
-•	Implement validations to prevent duplicate voting.
+	- APIs for users to cast votes.
+    - Implement validations to prevent duplicate voting.
 3. Result Computation
-•	Real-time calculation of vote counts for each option.
-•	Efficient query design for scalability.
+    - Real-time calculation of vote counts for each option.
+    - Efficient query design for scalability.
 4. API Documentation
-•	Use Swagger to document all endpoints.
-•	Host documentation at /api/docs for easy access.
+    - Use Swagger to document all endpoints.
+    - Host documentation at /api/docs for easy access.
 ##	Nexus_vote Actors and Use cases
 The platform has two (2) principal actors with the following use cases
 
