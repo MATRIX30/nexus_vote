@@ -1,7 +1,35 @@
 # NEXUS_VOTE
 
-
 # Table of Contents
+
+- [Description](#description)
+- [Features](#features)
+  - [Nexus_vote Actors and Use cases](#nexus_vote-actors-and-use-cases)
+    - [Nexus_Vote Client](#nexus_vote-client)
+    - [Nexus_Vote Admin](#nexus_vote-admin)
+- [System Architecture](#system-architecture)
+- [DevOps Workflow](#devops-workflow)
+  - [CI/CD Pipeline](#1-cicd-pipeline)
+    - [Continuous Monitoring with Prometheus and Grafana](#continuous-monitoring-with-prometheus-and-grafana)
+  - [Orchestration with Kubernetes](#2-orchestration-with-kubernetes)
+  - [Nexus Vote Data Model](#nexus-vote-data-model)
+- [Installation and Setup](#installation-and-setup)
+  - [Clone the Repository](#clone-the-repository)
+  - [Install Python3](#install-python3-on-your-system)
+    - [Windows](#windows)
+    - [Linux](#linux)
+    - [macOS](#macos)
+  - [Install Python Libraries](#2-install-python-libraries)
+  - [Containerization with Docker](#containerization-docker)
+- [Usage](#usage)
+- [Contributions Guidelines](#contributions-guidelines)
+  - [How to Contribute](#how-to-contribute)
+  - [Code Style Guidelines](#code-style-guidelines)
+  - [Reporting Issues](#reporting-issues)
+  - [Feature Requests](#feature-requests)
+- [License](#license)
+  - [MIT License](#mit-license)
+- [Support](#support)
 
 # Description
 Nexus vote is a decentralized secure and transparent platform that enables users to rapidly create dynamic and transparent polls to get the democratic pulse of their Electorates on an opinion. This application uses a MFA mechanism to authenticate its users and a transparent dashboard to view in real time the computation of the results of a Poll. It also provides a custom authentication algorithm to prevent fraud in voting such as double voting the system uses unique generated Keys for each voter which once used can’t be used again, vote tempering the integrity of polls is guaranteed by hashing and signature to capture snapshots of states of a poll and preserve its integrity. 
