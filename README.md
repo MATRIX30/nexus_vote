@@ -43,7 +43,9 @@ This is a normal user who can perform the following functionalities.
 
 
 # System Architecture
-
+The Architecture proposed is a client server architecture with an API Component 
+as the core that serves the clients
+![Nexus Vote System Architecture](./imgs/Nexus_vote%20Architecture.png)
 # DevOps Workflow
 ## 1) CI/CD Pipleline
 
@@ -131,10 +133,100 @@ docker run
 
 
 # Usage
-
+To run the API Back-end run the following command
+```
+python3 manage.py runserver 
+```
 # Contributions Guidelines
 
-# license 
+We welcome contributions to Nexus Vote! Please follow these guidelines to ensure a smooth contribution process:
 
-# support
+## How to Contribute
+
+### 1. Fork the Repository
+- Fork the repository on GitHub
+- Clone your fork locally:
+  ```bash
+  git clone https://github.com/YOUR_USERNAME/nexus_vote.git
+  cd nexus_vote
+  ```
+
+### 2. Create a Feature Branch
+- Create a new branch for your feature or bug fix:
+  ```bash
+  git checkout -b feature/your-feature-name
+  ```
+
+### 3. Make Your Changes
+- Follow the existing code style and conventions
+- Write clear, concise commit messages
+- Add tests for new functionality
+- Update documentation as needed
+
+### 4. Test Your Changes
+- Run the existing tests to ensure nothing is broken
+- Add new tests for your changes
+- Ensure all tests pass before submitting
+
+### 5. Submit a Pull Request
+- Push your changes to your fork
+- Create a pull request with a clear description of your changes
+- Reference any related issues
+
+## Code Style Guidelines
+- Follow PEP 8 for Python code
+- Use meaningful variable and function names
+- Add docstrings to functions and classes
+- Keep functions small and focused
+
+## Reporting Issues
+- Use the GitHub issue tracker to report bugs
+- Provide detailed information about the issue
+- Include steps to reproduce the problem
+- Add relevant screenshots if applicable
+
+## Feature Requests
+- Use the GitHub issue tracker for feature requests
+- Clearly describe the proposed feature
+- Explain the use case and benefits
+
+# License 
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## MIT License
+
+```
+MIT License
+
+Copyright (c) 2025 MATRIX30
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+# Support
+
+If you need help or have questions about Nexus Vote, please reach out:
+
+- **Email**: matrixboy30@gmail.com
+- **GitHub Issues**: [Create an issue](https://github.com/MATRIX30/nexus_vote/issues)
+- **Documentation**: Check the docs/ folder for detailed documentation
+
+For urgent issues or security concerns, please email directly at matrixboy30@gmail.com
 
