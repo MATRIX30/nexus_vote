@@ -84,8 +84,9 @@ as the core that serves the clients
 ## 1) CI/CD Pipleline
 
 #### - Continuous Monitory with Prometheus and Grafana
-
-
+Continuous monitoring of VPS server where Nexus_vote runs using prometheus and 
+Grafana
+![Nexus Vote Server Monitoring](./imgs/Nexus_vote_Grafana%20Dashboard.png)
 ## 2) Orchestration with Kubernetes
 
 
