@@ -15,10 +15,16 @@
   - [Nexus Vote Data Model](#nexus-vote-data-model)
 - [Installation and Setup](#installation-and-setup)
   - [Clone the Repository](#clone-the-repository)
-  - [Install Python3](#install-python3-on-your-system)
+  - [Install PostgreSQL](#install-postgresql)
     - [Windows](#windows)
-    - [Linux](#linux)
+    - [Linux (Ubuntu/Debian)](#linux-ubuntudebian)
+    - [Linux (CentOS/RHEL/Fedora)](#linux-centosrhelfedora)
     - [macOS](#macos)
+    - [Post-Installation Setup](#post-installation-setup)
+  - [Install Python3](#install-python3-on-your-system)
+    - [Windows](#windows-1)
+    - [Linux](#linux)
+    - [macOS](#macos-1)
   - [Install Python Libraries](#2-install-python-libraries)
   - [Containerization with Docker](#containerization-docker)
 - [Usage](#usage)
@@ -103,6 +109,125 @@ To get started, you need to clone the DineHub repository. Follow these steps:
     ```
 
 Once the repository is cloned, you can proceed with the installation and setup of both the front-end and back-end components.
+
+## Install PostgreSQL
+---
+
+Nexus Vote uses PostgreSQL as its database. Follow the instructions below to install PostgreSQL on your operating system:
+
+### Windows:
+1. Visit the [PostgreSQL official download page](https://www.postgresql.org/download/windows/)
+2. Download the PostgreSQL installer for Windows
+3. Run the installer and follow these steps:
+   - Choose installation directory (default is recommended)
+   - Select components to install (keep all defaults selected)
+   - Choose data directory (default is recommended)
+   - Set a password for the postgres user (remember this password!)
+   - Set port number (default 5432 is recommended)
+   - Choose default locale
+4. Complete the installation and launch Stack Builder if prompted
+5. Verify installation by opening Command Prompt and running:
+   ```cmd
+   psql --version
+   ```
+
+### Linux (Ubuntu/Debian):
+1. Update your package list:
+   ```bash
+   sudo apt update
+   ```
+2. Install PostgreSQL:
+   ```bash
+   sudo apt install postgresql postgresql-contrib
+   ```
+3. Start and enable PostgreSQL service:
+   ```bash
+   sudo systemctl start postgresql
+   sudo systemctl enable postgresql
+   ```
+4. Switch to postgres user and create a database:
+   ```bash
+   sudo -u postgres psql
+   ```
+5. Set password for postgres user (in psql prompt):
+   ```sql
+   \password postgres
+   ```
+6. Exit psql:
+   ```sql
+   \q
+   ```
+
+### Linux (CentOS/RHEL/Fedora):
+1. Install PostgreSQL:
+   ```bash
+   # For CentOS/RHEL
+   sudo yum install postgresql postgresql-server postgresql-contrib
+   
+   # For Fedora
+   sudo dnf install postgresql postgresql-server postgresql-contrib
+   ```
+2. Initialize the database:
+   ```bash
+   sudo postgresql-setup initdb
+   ```
+3. Start and enable PostgreSQL:
+   ```bash
+   sudo systemctl start postgresql
+   sudo systemctl enable postgresql
+   ```
+
+### macOS:
+1. **Using Homebrew (Recommended):**
+   ```bash
+   # Install Homebrew if not already installed
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   
+   # Install PostgreSQL
+   brew install postgresql
+   
+   # Start PostgreSQL service
+   brew services start postgresql
+   ```
+
+2. **Using PostgreSQL App:**
+   - Download Postgres.app from [postgresapp.com](https://postgresapp.com/)
+   - Drag to Applications folder and launch
+   - Click "Initialize" to create a new server
+
+3. **Using Official Installer:**
+   - Download from [PostgreSQL official site](https://www.postgresql.org/download/macosx/)
+   - Follow the installation wizard
+
+### Post-Installation Setup:
+1. **Create a database for Nexus Vote:**
+   ```bash
+   # Connect to PostgreSQL
+   psql -U postgres
+   
+   # Create database
+   CREATE DATABASE nexus_vote_db;
+   
+   # Create a user for the application
+   CREATE USER nexus_user WITH PASSWORD 'your_password';
+   
+   # Grant privileges
+   GRANT ALL PRIVILEGES ON DATABASE nexus_vote_db TO nexus_user;
+   
+   # Exit
+   \q
+   ```
+
+2. **Verify Installation:**
+   ```bash
+   psql --version
+   ```
+
+### Configuration Notes:
+- Default PostgreSQL port: 5432
+- Default superuser: postgres
+- Remember to update your Django settings.py with the correct database credentials
+- For production, consider additional security configurations
 
 ## Install python3 on your system
 ---
