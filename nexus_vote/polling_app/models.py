@@ -40,7 +40,7 @@ class Poll(models.Model):
 # creating the VoteOption Model
 class VoteOption(models.Model):
     poll = models.ForeignKey(
-        Poll, on_delete=models.CASCADE, unique=True, related_name="vote_options"
+        Poll, on_delete=models.CASCADE,  related_name="vote_options"
     )
     option_name = models.CharField(max_length=512, unique=True)
     description = models.TextField(max_length=1024)
