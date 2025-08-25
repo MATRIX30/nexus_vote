@@ -24,10 +24,11 @@ Version: 1.0
 from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from polling_app.models import User, Poll, Registration, Vote, VoteOption
-from polling_app.serializer import userSerializer
+from polling_app.serializer import userSerializer, pollSerializer
 
 
 # Create your views here.
@@ -282,3 +283,67 @@ class UserListViews(APIView):
             return Response(serialized_user.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serialized_user.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# class based views
+
+@api_view(["GET","PUT"])
+def PollView(request, id):
+    """
+    Retrieve poll details by poll ID.
+    
+    Args:
+        request: DRF request object
+        id: Poll ID to retrieve
+        
+    Returns:
+        Response: Poll data or error message
+    """
+    if request.method == "GET":
+        try:
+            poll = Poll.objects.get(id=id)
+            serialized_poll = pollSerializer(poll)
+            return Response(serialized_poll.data)
+        except Poll.DoesNotExist:
+            return Response({"Error":f"Object with id {id} doesn't exist"}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({"Error":str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    if request.method == "PUT":
+        # try to get object with id if it fails report failure
+        try:
+            poll = Poll.objects.get(pk=id)
+            serialized_poll = pollSerializer(poll)
+            
+        except Poll.DoesNotExist:
+            return Response({"Error":f"Object with id {id} doesn't exist"}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({"Error":str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@api_view(["GET", "POST"])
+def PollViewList(request):
+    
+    if request.method == "GET":
+        try:
+            poll_list = Poll.objects.all()
+            serialized_poll = pollSerializer(poll_list, many=True)
+            return Response(serialized_poll.data, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response(
+                {"error": "An error occurred while creating the poll"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    if request.method == "POST":
+        try:
+            # capture the data and build a new poll object
+            
+            serialized_poll = pollSerializer(data=request.data)
+            if serialized_poll.is_valid():
+                serialized_poll.save()
+                return Response(serialized_poll.data, status=status.HTTP_201_CREATED)
+            else:
+                return Response(serialized_poll.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({"Error":f"Unable to create new Poll {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            
